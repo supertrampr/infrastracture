@@ -18,16 +18,24 @@ terraform {
 # Additional properties scoped to the single provider.
 provider "digitalocean" {}
 
+module "vpc" {
+  source = "../../modules/network/vpc"
+
+  ip_range = var.vpc_ip_range
+  name     = "vpc-${local.postfix}"
+  region   = var.region
+}
+
 module "doks_cluster" {
   source = "../../modules/services/doks"
 
   k8s_version   = var.doks_cluster_k8s_version
-  name          = "doks-${var.region}-${var.env}-${var.owner}"
-  nodepool_name = "nodes-${var.region}-${var.env}-${var.owner}"
+  name          = "doks-${local.postfix}"
+  nodepool_name = "nodes-${local.postfix}"
   nodepool_size = var.doks_cluster_nodepool_size
   region        = var.region
   nodes_count   = var.doks_cluster_nodes_count
+  vpc_id        = module.vpc.id
 
   tags = var.tags
-
 }
