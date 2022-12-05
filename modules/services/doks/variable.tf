@@ -28,6 +28,11 @@ variable "nodes_count" {
   type        = number
 }
 
+variable "vpc_id" {
+  description = "ID of the vpc where the cluster will be deployed."
+  type        = string
+}
+
 variable "tags" {
   description = "List of tags to be attached to the DOKS cluster."
   type        = set(string)
