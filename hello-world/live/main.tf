@@ -27,24 +27,24 @@ provider "digitalocean" {
 }
 
 provider "kubernetes" {
-  host = module.doks_cluster.host
-  token = module.doks_cluster.token
+  host                   = module.doks_cluster.host
+  token                  = module.doks_cluster.token
   cluster_ca_certificate = base64decode(module.doks_cluster.cluster_ca_certificate)
 
   # If you are having some trouble connecting with the configuration above use this instead.
-#  config_path    = "~/.kube/config"
-#  config_context = "do-fra1-doks-fra1-poc-neosyn"
+  #  config_path    = "~/.kube/config"
+  #  config_context = "do-fra1-doks-fra1-poc-neosyn"
 }
 
 provider "helm" {
   kubernetes {
-    host = module.doks_cluster.host
-    token = module.doks_cluster.token
+    host                   = module.doks_cluster.host
+    token                  = module.doks_cluster.token
     cluster_ca_certificate = base64decode(module.doks_cluster.cluster_ca_certificate)
 
     # If you are having some trouble connecting with the configuration above use this instead.
-#    config_path    = "~/.kube/config"
-#    config_context = "do-fra1-doks-fra1-poc-neosyn"
+    #    config_path    = "~/.kube/config"
+    #    config_context = "do-fra1-doks-fra1-poc-neosyn"
   }
 }
 

@@ -11,8 +11,8 @@ terraform {
 }
 
 resource "digitalocean_loadbalancer" "example" {
-  name   = var.name
-  region = var.region
+  name     = var.name
+  region   = var.region
   vpc_uuid = var.vpc_id
 
   forwarding_rule {
