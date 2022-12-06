@@ -11,8 +11,29 @@ tags = [
 
 # DOKS
 doks_cluster_k8s_version   = "1.24.4-do.0"
-doks_cluster_nodepool_size = "s-1vcpu-1gb"
+doks_cluster_nodepool_size = "s-2vcpu-4gb"
 doks_cluster_nodes_count   = 1
 
 # VPC
 vpc_ip_range = "192.168.10.0/24"
+
+# LOADBALANCER
+loadbalancer_entry_port      = 22
+loadbalancer_entry_protocol  = "tcp"
+loadbalancer_target_port     = 2222
+loadbalancer_target_protocol = "tcp"
+
+# IMAGEPULL_SECRET
+imagepull_secret_key       = ".dockerconfigjson"
+imagepull_secret_name      = "do-registry"
+imagepull_secret_namespace = "workshop"
+imagepull_secret_type      = "kubernetes.io/dockerconfigjson"
+
+# NAMESPACES
+namespaces = [
+  "poc",
+  "nginx"
+]
+
+# NGINX
+nginx_release_name = "nginx-ingress"

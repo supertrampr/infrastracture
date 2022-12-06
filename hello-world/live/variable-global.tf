@@ -1,3 +1,7 @@
+variable "do_token" {
+  description = "DigitalOcean access token."
+}
+
 variable "region" {
   description = "Region where the resources will be deployed."
   type        = string
