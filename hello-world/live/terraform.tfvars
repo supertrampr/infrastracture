@@ -32,8 +32,19 @@ imagepull_secret_type      = "kubernetes.io/dockerconfigjson"
 # NAMESPACES
 namespaces = [
   "poc",
-  "nginx"
+  "nginx",
+  "certmanager"
 ]
 
 # NGINX
 nginx_release_name = "nginx-ingress"
+
+# CERTMANAGER
+cert_manager_release_name = "cert-manager"
+cert_manager_email = "workshop@hello-world.org"
+cert_manager_cluster_issuers = {
+  prod = {
+    name   = "letsencrypt-prod"
+    server = "https://acme-v02.api.letsencrypt.org/directory"
+  }
+}

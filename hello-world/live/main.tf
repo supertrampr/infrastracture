@@ -15,6 +15,10 @@ terraform {
       source  = "hashicorp/helm"
       version = "~>2.7.1"
     }
+    ovh = {
+      source = "ovh/ovh"
+      version = "~>0.24.0"
+    }
   }
   # This is the backend block, used by terraform
   # to know where to store the remote state.
@@ -46,6 +50,13 @@ provider "helm" {
     #    config_path    = "~/.kube/config"
     #    config_context = "do-fra1-doks-fra1-poc-neosyn"
   }
+}
+
+provider "ovh" {
+  endpoint           = "ovh-eu"
+  application_key    = var.ovh_application_key # "817f9ad67dd5fa52"
+  application_secret = var.ovh_application_secret # "77d5b4950118c60ba79e51f4874d77bd"
+  consumer_key       = var.ovh_consumer_key # "a9a4418d04a63e55c895e9f6601ca20a"
 }
 
 module "vpc" {
@@ -101,6 +112,10 @@ module "namespace" {
   for_each = var.namespaces
 
   name = each.value
+
+  depends_on = [
+    module.doks_cluster
+  ]
 }
 
 module "imagepull_secret" {
@@ -121,4 +136,13 @@ module "nginx_ingress_controller" {
   load_balancer_public_ip = module.loadbalancer.ip
   name                    = var.nginx_release_name
   namespace               = module.namespace["nginx"].name
+}
+
+module "cert_manager" {
+  source = "../../modules/helm/cert-manager"
+
+  name      = var.cert_manager_release_name
+  namespace = module.namespace["certmanager"].name
+  cluster_issuers = var.cert_manager_cluster_issuers
+  email = var.cert_manager_email
 }
