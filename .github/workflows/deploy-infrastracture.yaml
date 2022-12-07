@@ -31,7 +31,7 @@ jobs:
           terraform init -backend-config="endpoint=$BACKEND_ENDPOINT" \
             -backend-config="key=$BACKEND_KEY" \
             -backend-config="bucket=$BACKEND_BUCKET" \
-            -backend-config="eu-central-1=$BACKEND_REGION" \
+            -backend-config="region=$BACKEND_REGION" \
             -backend-config="access_key=$BACKEND_ACCESS_KEY" \
             -backend-config="secret_key=$BACKEND_SECRET_KEY" \
             -backend-config="skip_credentials_validation=true" \
@@ -74,7 +74,7 @@ jobs:
           terraform init -backend-config="endpoint=$BACKEND_ENDPOINT" \
             -backend-config="key=$BACKEND_KEY" \
             -backend-config="bucket=$BACKEND_BUCKET" \
-            -backend-config="eu-central-1=$BACKEND_REGION" \
+            -backend-config="region=$BACKEND_REGION" \
             -backend-config="access_key=$BACKEND_ACCESS_KEY" \
             -backend-config="secret_key=$BACKEND_SECRET_KEY" \
             -backend-config="skip_credentials_validation=true" \
