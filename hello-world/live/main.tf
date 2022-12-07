@@ -16,7 +16,7 @@ terraform {
       version = "~>2.7.1"
     }
     ovh = {
-      source = "ovh/ovh"
+      source  = "ovh/ovh"
       version = "~>0.24.0"
     }
   }
@@ -53,10 +53,10 @@ provider "helm" {
 }
 
 provider "ovh" {
-  endpoint           = "ovh-eu"
-  application_key    = var.ovh_application_key # "817f9ad67dd5fa52"
+  endpoint           = "ovh-ca"
+  application_key    = var.ovh_application_key    # "817f9ad67dd5fa52"
   application_secret = var.ovh_application_secret # "77d5b4950118c60ba79e51f4874d77bd"
-  consumer_key       = var.ovh_consumer_key # "a9a4418d04a63e55c895e9f6601ca20a"
+  consumer_key       = var.ovh_consumer_key       # "a9a4418d04a63e55c895e9f6601ca20a"
 }
 
 module "vpc" {
@@ -134,6 +134,7 @@ module "nginx_ingress_controller" {
   load_balancer_id        = module.loadbalancer.id
   load_balancer_name      = module.loadbalancer.name
   load_balancer_public_ip = module.loadbalancer.ip
+  load_balancer_hostname  = module.do_dns_record["workaround"].fqdn
   name                    = var.nginx_release_name
   namespace               = module.namespace["nginx"].name
 }
@@ -141,8 +142,35 @@ module "nginx_ingress_controller" {
 module "cert_manager" {
   source = "../../modules/helm/cert-manager"
 
-  name      = var.cert_manager_release_name
-  namespace = module.namespace["certmanager"].name
+  name            = var.cert_manager_release_name
+  namespace       = module.namespace["certmanager"].name
   cluster_issuers = var.cert_manager_cluster_issuers
-  email = var.cert_manager_email
+  email           = var.cert_manager_email
+}
+
+module "ovh_domain_record" {
+  source = "../../modules/network/ovh-domain-record"
+
+  type      = var.ovh_domain_record_type
+  subdomain = var.ovh_domain_record_subdomain
+  target    = module.loadbalancer.ip
+  ttl       = var.ovh_domain_record_ttl
+  zone      = var.domain_name
+}
+
+module "do_domain" {
+  source = "../../modules/network/do-domain"
+
+  name = var.domain_name
+}
+
+module "do_dns_record" {
+  source = "../../modules/network/do-dns-record"
+
+  for_each = var.do_dns_record
+
+  domain_name = module.do_domain.name
+  name        = each.value["name"]
+  type        = each.value["type"]
+  value       = module.loadbalancer.ip
 }

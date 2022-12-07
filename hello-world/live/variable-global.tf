@@ -21,3 +21,8 @@ variable "tags" {
   description = "Map of tags to attach to resources."
   type        = set(string)
 }
+
+variable "domain_name" {
+  description = "Domain name for the application."
+  type        = string
+}
