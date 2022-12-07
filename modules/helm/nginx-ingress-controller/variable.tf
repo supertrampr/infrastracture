@@ -18,6 +18,11 @@ variable "load_balancer_name" {
   type        = string
 }
 
+variable "load_balancer_hostname" {
+  description = "Hostname where to reach the loadbalancer."
+  type        = string
+}
+
 variable "load_balancer_public_ip" {
   description = "Public ip of the loadbalancer to use ad controller."
   type        = string

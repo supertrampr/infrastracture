@@ -12,6 +12,7 @@ controller:
     annotations: # https://github.com/kubernetes/ingress-nginx/issues/3996
       service.beta.kubernetes.io/do-loadbalancer-name: ${load_balancer_name}
       service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
+      service.beta.kubernetes.io/do-loadbalancer-hostname: "${load_balancer_hostname}"
       kubernetes.digitalocean.com/load-balancer-id: ${load_balancer_id}
     loadBalancerIP: ${public_ip}
     externalTrafficPolicy: "Local"

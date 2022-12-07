@@ -8,9 +8,10 @@ resource "helm_release" "example" {
 
   values = [
     templatefile("${path.module}/values/values.yaml", {
-      load_balancer_id   = var.load_balancer_id
-      load_balancer_name = var.load_balancer_name
-      public_ip          = var.load_balancer_public_ip
+      load_balancer_id       = var.load_balancer_id
+      load_balancer_name     = var.load_balancer_name
+      load_balancer_hostname = var.load_balancer_hostname
+      public_ip              = var.load_balancer_public_ip
     })
   ]
 }
