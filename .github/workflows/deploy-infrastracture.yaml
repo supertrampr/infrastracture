@@ -4,6 +4,22 @@ on:
   push:
     branches:
       - "develop"
+  workflow_dispatch:
+    inputs:
+      sample-fe-app:
+        description: "Application that will be deployed."
+        required: true
+        default: 'sample-fe-app'
+      
+      sample-fe-app_github-account:
+        description: "GitHub Account Owner"
+        required: true
+        default: 'supertrampr'
+      
+      sample-fe-app_repository:
+        description: "Repository name"
+        required: true
+        default: 'sample-fe-app'
 
 env:
   TF_FOLDER: "hello-world/live"
@@ -84,3 +100,15 @@ jobs:
         working-directory: ${{ env.TF_FOLDER }}
         run: |
           terraform apply -auto-approve
+
+  run-application-workflow:
+    runs-on: ubuntu-latest
+    needs: 
+      - apply
+    steps:
+      - name: "CALL sample-fe-app workflow"
+        run: |
+          curl -X POST https://api.github.com/repos/supertrampr/sample-fe-app/dispatches \
+           -H 'Accept: application/vnd.github.everest-preview+json' \
+           -u ${{ secrets.PERSONAL_ACCESS_TOKEN }} \
+           --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "'"sample-fe-app"'" }}'
