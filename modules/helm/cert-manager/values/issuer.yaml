@@ -1,0 +1,8 @@
+name: ${name}
+namespace: ${namespace}
+
+acme:
+  server: ${server_url}
+  email: ${email}
+  secretRef:
+    name: ${name}

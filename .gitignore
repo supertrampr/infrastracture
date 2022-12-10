@@ -1,0 +1,10 @@
+# MACOS FILES
+.DS_Store
+
+# IDE
+.idea
+
+# TERRAFORM
+.terraform*
+config
+*.tfplan
