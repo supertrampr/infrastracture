@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  TF_VAR_do_token: "${{ secrets.DIGITAL_OCEAN_ACCESS_TOKEN }}"
+  TF_VAR_do_token: "${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}"
   TF_TESTS_FOLDER: "tests/workshop"
 
 jobs:
