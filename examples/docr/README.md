@@ -1,6 +1,6 @@
-# DOKS example
+# DOCR example
 
-This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of to use the [doks module](../../modules/services/doks) to deploy a Kubernetes cluster (using [DOKS](https://docs.digitalocean.com/products/kubernetes/) with a custom [VPC](https://docs.digitalocean.com/products/networking/vpc/)) in a [Digital Ocean project](https://www.digitalocean.com/).
+This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of to use the [docr module](../../modules/services/docr) to deploy a Container Registry (using [DOCR](https://docs.digitalocean.com/products/container-registry/)) in a [Digital Ocean project](https://www.digitalocean.com/).
 
 ## Pre-requisites
 
@@ -11,7 +11,9 @@ Please note that this code was written for Terraform 1.x.
 
 ## Quick start
 
-**Please note that this example will deploy real resources into you Digital Ocean project therefore costs may occur.**
+**Please note that this example will deploy real resources into you Digital Ocean project. We have made every effort to ensure 
+all the resources qualify for the [Digital Ocean Free Tier](https://www.digitalocean.com/pricing), but we are not responsible for any
+charges you may incur.**
 
 Configure the Terraform variable that contains your [Digital Ocean Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/) by running:
 
