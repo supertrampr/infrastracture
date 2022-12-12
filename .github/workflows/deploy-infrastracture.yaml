@@ -4,22 +4,10 @@ on:
   push:
     branches:
       - "develop"
+    paths-ignore:
+      - '*.md'
+      - '.github/**'
   workflow_dispatch:
-    inputs:
-      sample-fe-app:
-        description: "Application that will be deployed."
-        required: true
-        default: 'sample-fe-app'
-      
-      sample-fe-app_github-account:
-        description: "GitHub Account Owner"
-        required: true
-        default: 'supertrampr'
-      
-      sample-fe-app_repository:
-        description: "Repository name"
-        required: true
-        default: 'sample-fe-app'
 
 env:
   TF_FOLDER: "hello-world/live"

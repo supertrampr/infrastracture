@@ -1,0 +1,23 @@
+name: tests
+
+on:
+  pull_request:
+    branches:
+      - "main"
+  workflow_dispatch:
+
+env:
+  TF_VAR_do_token: "${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}"
+  TF_TESTS_FOLDER: "tests/workshop"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "GIT: checkout"
+        uses: actions/checkout@v3
+
+      - name: "TERRATEST: run tests"
+        working-directory: ${{ env.TF_TESTS_FOLDER }}
+        run: |
+          go test -v -timeout 90m

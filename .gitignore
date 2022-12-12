@@ -5,6 +5,7 @@
 .idea
 
 # TERRAFORM
-.terraform*
+.terraform
 config
 *.tfplan
+*.tfstate*
