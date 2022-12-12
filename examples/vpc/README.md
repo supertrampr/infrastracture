@@ -5,7 +5,7 @@ This folder contains a [Terraform](https://www.terraform.io/) configuration that
 ## Pre-requisites
 
 * You must have [Terraform](https://www.terraform.io/) installed on your computer.
-* You must have a [Digtial Ocean account](https://www.digitalocean.com/).
+* You must have a [Digital Ocean account](https://www.digitalocean.com/).
 
 Please note that this code was written for Terraform 1.x.
 

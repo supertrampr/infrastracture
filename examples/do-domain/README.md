@@ -1,6 +1,6 @@
 # DOKS example
 
-This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of to use the [doks module](../../modules/services/doks) to deploy a Kubernetes cluster (using [DOKS](https://docs.digitalocean.com/products/kubernetes/) with a custom [VPC](https://docs.digitalocean.com/products/networking/vpc/)) in a [Digital Ocean project](https://www.digitalocean.com/).
+This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of to use the [do-domain module](../../modules/network/do-domain) to deploy a DNS Domain (using [Domains and DNS](https://docs.digitalocean.com/products/networking/dns/)) in a [Digital Ocean project](https://www.digitalocean.com/).
 
 ## Pre-requisites
 
@@ -11,7 +11,7 @@ Please note that this code was written for Terraform 1.x.
 
 ## Quick start
 
-**Please note that this example will deploy real resources into you Digital Ocean project therefore costs may occur.**
+**Please note that this example will deploy real resources into you Digital Ocean project at no additional costs.**
 
 Configure the Terraform variable that contains your [Digital Ocean Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/) by running:
 
