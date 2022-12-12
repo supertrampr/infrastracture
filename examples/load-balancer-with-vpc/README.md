@@ -1,6 +1,6 @@
-# DOKS example
+# DigitalOcean Load Balancer example
 
-This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of how to use the [doks module](../../modules/services/doks) to deploy a Kubernetes cluster (using [DOKS](https://docs.digitalocean.com/products/kubernetes/) with a custom [VPC](https://docs.digitalocean.com/products/networking/vpc/)) in a [Digital Ocean project](https://www.digitalocean.com/).
+This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of how to use the [load-balancer module](../../modules/network/load-balancer) to deploy a Load Balancer (using [DigitalOcean Load Balancer](https://docs.digitalocean.com/products/networking/load-balancers/)) in a [Digital Ocean project](https://www.digitalocean.com/).
 
 ## Pre-requisites
 
@@ -11,7 +11,7 @@ Please note that this code was written for Terraform 1.x.
 
 ## Quick start
 
-**Please note that this example will deploy real resources into your Digital Ocean project therefore costs may occur.**
+**Please note that this example will deploy real resources into your Digital Ocean project therefore additional costs may incur.**
 
 Configure the Terraform variable that contains your [Digital Ocean Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/) by running:
 

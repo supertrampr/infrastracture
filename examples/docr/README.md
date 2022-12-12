@@ -11,7 +11,7 @@ Please note that this code was written for Terraform 1.x.
 
 ## Quick start
 
-**Please note that this example will deploy real resources into you Digital Ocean project. We have made every effort to ensure 
+**Please note that this example will deploy real resources into your Digital Ocean project. We have made every effort to ensure 
 all the resources qualify for the [Digital Ocean Free Tier](https://www.digitalocean.com/pricing), but we are not responsible for any
 charges you may incur.**
 

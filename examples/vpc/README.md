@@ -11,7 +11,7 @@ Please note that this code was written for Terraform 1.x.
 
 ## Quick start
 
-**Please note that this example will deploy real resources into you Digital Ocean project at no additional cost.**
+**Please note that this example will deploy real resources into your Digital Ocean project at no additional cost.**
 
 Configure the Terraform variable that contains your [Digital Ocean Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/) by running:
 
