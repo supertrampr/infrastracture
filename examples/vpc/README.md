@@ -1,6 +1,6 @@
 # DigitalOcean VPC example
 
-This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of to use the [vpc module](../../modules/network/vpc) to deploy a VPC (using [VPC](https://docs.digitalocean.com/products/networking/vpc/)) in a [Digital Ocean project](https://www.digitalocean.com/).
+This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of how to use the [vpc module](../../modules/network/vpc) to deploy a VPC (using [VPC](https://docs.digitalocean.com/products/networking/vpc/)) in a [Digital Ocean project](https://www.digitalocean.com/).
 
 ## Pre-requisites
 

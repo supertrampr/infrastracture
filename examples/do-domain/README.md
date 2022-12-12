@@ -1,6 +1,6 @@
-# DOKS example
+# Digital Ocean DNS Domain example
 
-This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of to use the [do-domain module](../../modules/network/do-domain) to deploy a DNS Domain (using [Domains and DNS](https://docs.digitalocean.com/products/networking/dns/)) in a [Digital Ocean project](https://www.digitalocean.com/).
+This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of how to use the [do-domain module](../../modules/network/do-domain) to deploy a DNS Domain (using [Domains and DNS](https://docs.digitalocean.com/products/networking/dns/)) in a [Digital Ocean project](https://www.digitalocean.com/).
 
 ## Pre-requisites
 

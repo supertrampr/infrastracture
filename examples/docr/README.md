@@ -1,6 +1,6 @@
 # DOCR example
 
-This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of to use the [docr module](../../modules/services/docr) to deploy a Container Registry (using [DOCR](https://docs.digitalocean.com/products/container-registry/)) in a [Digital Ocean project](https://www.digitalocean.com/).
+This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of how to use the [docr module](../../modules/services/docr) to deploy a Container Registry (using [DOCR](https://docs.digitalocean.com/products/container-registry/)) in a [Digital Ocean project](https://www.digitalocean.com/).
 
 ## Pre-requisites
 
