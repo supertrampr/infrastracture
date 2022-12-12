@@ -13,9 +13,25 @@ This folder contains a [Terraform](https://www.terraform.io/) configuration that
 
 Configure the Terraform variable that contains your [Digital Ocean Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/) by running:
 
+<details><summary>Powershell</summary>
+<p>
+
 ```
 $env:TF_VAR_do_token="(your personal access token)"
 ```
+
+</p>
+</details>
+
+<details><summary>Bash</summary>
+<p>
+
+```
+export TF_VAR_do_token="(your personal access token)"
+```
+
+</p>
+</details>
 
 Deploy the code:
 
