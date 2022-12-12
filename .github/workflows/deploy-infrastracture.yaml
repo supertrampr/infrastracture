@@ -6,6 +6,7 @@ on:
       - "develop"
     paths-ignore:
       - '*.md'
+      - '.github/**'
   workflow_dispatch:
 
 env:
