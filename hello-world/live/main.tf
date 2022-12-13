@@ -131,6 +131,8 @@ module "imagepull_secret" {
 module "nginx_ingress_controller" {
   source = "../../modules/helm/nginx-ingress-controller"
 
+  count = (var.is_public) ? 1 : 0
+
   load_balancer_id        = module.loadbalancer.id
   load_balancer_name      = module.loadbalancer.name
   load_balancer_public_ip = module.loadbalancer.ip
@@ -141,6 +143,8 @@ module "nginx_ingress_controller" {
 
 module "cert_manager" {
   source = "../../modules/helm/cert-manager"
+
+  count = (var.is_encrypted) ? 1 : 0
 
   name            = var.cert_manager_release_name
   namespace       = module.namespace["certmanager"].name

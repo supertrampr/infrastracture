@@ -26,3 +26,13 @@ variable "domain_name" {
   description = "Domain name for the application."
   type        = string
 }
+
+variable "is_public" {
+  description = "Decide whether to publish ingresses publicly or not."
+  type = bool
+}
+
+variable "is_encrypted" {
+  description = "Decide whether to manage the site in SSL or not."
+  type = string
+}

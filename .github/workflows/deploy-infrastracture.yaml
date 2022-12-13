@@ -8,6 +8,15 @@ on:
       - '*.md'
       - '.github/**'
   workflow_dispatch:
+    inputs:
+      is_public:
+        description: 'Decide whether to publish ingresses publicly or not.'
+        required: true
+        default: true
+      is_encrypted:
+        description: 'Decide whether to manage the site in SSL or not.'
+        required: true
+        default: true
 
 env:
   TF_FOLDER: "hello-world/live"
@@ -21,6 +30,8 @@ env:
   TF_VAR_ovh_application_key: ${{ secrets.OVH_APPLICATION_KEY }}
   TF_VAR_ovh_application_secret: ${{ secrets.OVH_APPLICATION_SECRET }}
   TF_VAR_ovh_consumer_key: ${{ secrets.OVH_CONSUMER_KEY }}
+  TF_VAR_is_public: ${{ github.event.inputs.is_public }}
+  TF_VAR_is_encrypted: ${{ github.event.inputs.is_encrypted }}
 
 jobs:
   plan:
