@@ -30,8 +30,8 @@ env:
   TF_VAR_ovh_application_key: ${{ secrets.OVH_APPLICATION_KEY }}
   TF_VAR_ovh_application_secret: ${{ secrets.OVH_APPLICATION_SECRET }}
   TF_VAR_ovh_consumer_key: ${{ secrets.OVH_CONSUMER_KEY }}
-  TF_VAR_is_public: ${{ github.event.inputs.is_public }}
-  TF_VAR_is_encrypted: ${{ github.event.inputs.is_encrypted }}
+  TF_VAR_is_public: ${{ github.event.inputs.is_public || true }}
+  TF_VAR_is_encrypted: ${{ github.event.inputs.is_encrypted || true }}
 
 jobs:
   plan:
