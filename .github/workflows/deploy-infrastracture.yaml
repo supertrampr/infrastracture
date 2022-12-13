@@ -6,17 +6,17 @@ on:
       - "develop"
     paths-ignore:
       - '*.md'
-      - '.github/**'
+      # - '.github/**'
   workflow_dispatch:
     inputs:
       is_public:
         description: 'Decide whether to publish ingresses publicly or not.'
         required: true
-        default: true
+        default: 'true'
       is_encrypted:
         description: 'Decide whether to manage the site in SSL or not.'
         required: true
-        default: true
+        default: 'true'
 
 env:
   TF_FOLDER: "hello-world/live"
